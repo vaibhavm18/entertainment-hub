@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+}
+
+@layer components {
+    .center {
+        @apply flex items-center justify-center;
+    }
+
+    .flex-100 {
+        flex: 0 0 100px;
+    }
+
+    .flex-rest {
+        flex: 1;
+    }
+}
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 20px;
+        height: 20px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #2b2a28;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #564b4b;
+        border-radius: 100vh;
+        border: 3px solid #2f3120;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #503e4c;
+    }
+
+    .loader {
+        border: 1.2rem solid rgb(255, 255, 255);
+        border-radius: 50%;
+        width: 200px;
+        border-top: 1.2rem dotted rgb(63, 56, 56);
+        border-bottom: 1.2rem solid rgb(135, 127, 127);
+        border-left: 1.2rem solid rgb(122, 136, 122);
+        border-right: 1.2rem dotted rgb(52, 58, 52);
+        height: 200px;
+        animation: spin 0.6s infinite linear;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
