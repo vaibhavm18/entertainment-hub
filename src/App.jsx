@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import WatchLater from "./components/WatchLater";
+import { apiResult } from "./constant";
 
 const pages = [
   { path: "/", status: "Now Playing" },
@@ -12,9 +13,8 @@ const pages = [
 ];
 
 const App = () => {
-  const addWatchLater = () => {};
   return (
-    <div className='h-screen   w-screen font-serif  bg-gray-900 text-white flex p-8 gap-4 '>
+    <div className='h-screen w-screen font-serif  bg-gray-900 text-white flex p-8 gap-4 '>
       <Header />
       <Routes>
         {pages.map((page, index) => {
@@ -22,17 +22,11 @@ const App = () => {
             <Route
               key={index}
               path={page.path}
-              element={
-                <Content addWatchLater={addWatchLater} status={page.status} />
-              }
+              element={<Content apiResult={apiResult} status={page.status} />}
             />
           );
         })}
-        <Route
-          key={100}
-          path={"/watchlater"}
-          element={<WatchLater status={"Watch Later"} />}
-        />
+        <Route element={<WatchLater />} path={"/watchlater"} />
       </Routes>
     </div>
   );

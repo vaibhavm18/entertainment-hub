@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { navItems } from "../constant";
 
-import { navItems } from "./constant";
 import Links from "./Links";
 
 const Header = () => {

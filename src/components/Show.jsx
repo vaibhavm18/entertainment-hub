@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsBookmarkPlusFill } from "react-icons/bs";
-import { imgUrl } from "./constant";
+import { TiTick } from "react-icons/ti";
+import { imgUrl } from "../constant";
 const Show = (props) => {
+  const [isSelected, setIsSelected] = useState(false);
   return (
     <div
       id={props.id}
@@ -13,7 +15,16 @@ const Show = (props) => {
         className='w-full h-auto'
       />
       <span className='absolute top-0 text-3xl -left-1 cursor-pointer text-gray-500 active:scale-105 transition-all '>
-        <BsBookmarkPlusFill />
+        {!isSelected ? (
+          <BsBookmarkPlusFill
+            onClick={() => {
+              setIsSelected(true);
+              props.addWatchLater(props);
+            }}
+          />
+        ) : (
+          <TiTick />
+        )}
       </span>
       <div className='px-2 py-1'>
         <p>
