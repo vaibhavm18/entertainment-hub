@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { styles } from "../constant";
 import Logo from "./Logo";
+import NoFavorites from "./NoFavorites";
 import Shows from "./Shows";
+import { useSelector } from "react-redux";
 
 const WatchLater = ({ status }) => {
-  const [watchLater, setWatchLater] = useState([]);
+  const shows = useSelector((state) => state.bookmark.favorites);
   return (
     <div className={`${styles.container} `}>
       <div className='flex flex-col items-center  gap-16 py-8 '>
         <Logo />
         <h2 className='font-bold text-4xl'>{status}</h2>
-        <Shows apiResult={watchLater} />
+        <Shows shows={shows} load={<NoFavorites />} isSelected={true} />
       </div>
     </div>
   );

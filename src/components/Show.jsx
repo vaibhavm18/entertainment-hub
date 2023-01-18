@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsBookmarkPlusFill } from "react-icons/bs";
-import { TiTick } from "react-icons/ti";
+import { MdBookmarkRemove } from "react-icons/md";
 import { imgUrl } from "../constant";
+import { useDispatch, useSelector } from "react-redux";
+import { addShow, removeShow } from "./features/bookmark/bookmark";
 const Show = (props) => {
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected, setIsSelected] = useState(props.isSelected);
+  const dispatch = useDispatch();
+  const shows = useSelector((state) => state.bookmark.favorites);
+  useEffect(() => {
+    shows.map(({ id }) => {
+      if (id === props.id) {
+        setIsSelected(true);
+      }
+    });
+  }, []);
+
   return (
     <div
       id={props.id}
-      className=' flex-[1_1_250px] border cursor-pointer border-gray-700 shadow-sm shadow-white max-w-xs relative hover:scale-[1.005] hover:shadow-md transition-all duration-200 active:scale-[0.98]'
+      className='   cursor-pointer border-gray-700 shadow-sm shadow-white  relative hover:scale-[1.005] hover:shadow-md transition-all duration-200 active:scale-[0.98]'
     >
       <img
         src={`${imgUrl}/${props.poster_path}`}
@@ -19,11 +31,16 @@ const Show = (props) => {
           <BsBookmarkPlusFill
             onClick={() => {
               setIsSelected(true);
-              props.addWatchLater(props);
+              dispatch(addShow(props));
             }}
           />
         ) : (
-          <TiTick />
+          <MdBookmarkRemove
+            onClick={() => {
+              setIsSelected(false);
+              dispatch(removeShow(props.id));
+            }}
+          />
         )}
       </span>
       <div className='px-2 py-1'>

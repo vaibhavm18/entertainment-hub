@@ -7,8 +7,8 @@ import Links from "./Links";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className='flex-100 hidden md:flex'>
-      <ul className=' flex-col h-full flex w-full bg-gray-800 rounded-2xl items-center gap-8 py-4 px-1'>
+    <nav className='flex-100 xs:flex'>
+      <ul className='  h-full flex xs:flex-col w-full bg-gray-800 rounded-2xl items-center gap-8 py-4 px-1'>
         {navItems.map((i, index) => {
           return (
             <Links

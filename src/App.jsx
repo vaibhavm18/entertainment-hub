@@ -3,18 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import WatchLater from "./components/WatchLater";
-import { apiResult } from "./constant";
-
-const pages = [
-  { path: "/", status: "Now Playing" },
-  { path: "/upcoming", status: "UpComing" },
-  { path: "/trending", status: "Trending" },
-  { path: "/tvshows", status: "TV Shows" },
-];
+import { pages } from "./constant";
 
 const App = () => {
   return (
-    <div className='h-screen w-screen font-serif  bg-gray-900 text-white flex p-8 gap-4 '>
+    <div className='h-screen w-screen font-serif  bg-gray-900 text-white flex flex-col xs:flex-row p-8 gap-4 '>
       <Header />
       <Routes>
         {pages.map((page, index) => {
@@ -22,7 +15,7 @@ const App = () => {
             <Route
               key={index}
               path={page.path}
-              element={<Content apiResult={apiResult} status={page.status} />}
+              element={<Content status={page.status} type={page.type} />}
             />
           );
         })}
