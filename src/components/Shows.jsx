@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Loader from "./Loader";
 import Show from "./Show";
+import { useSelector } from "react-redux";
+import { isBookmarked } from "../constant";
 const Shows = ({ shows, load, isSelected }) => {
+  const fav = useSelector((state) => state.bookmark.favorites);
+
   return (
     <div className='grid grid-cols-card gap-5  '>
       {shows && shows.length > 0
@@ -26,7 +30,7 @@ const Shows = ({ shows, load, isSelected }) => {
                   id={id}
                   key={id}
                   release_date={release_date ? release_date : first_air_date}
-                  isSelected={isSelected}
+                  isSelected={isBookmarked(id, fav, isSelected)}
                 />
               );
             }

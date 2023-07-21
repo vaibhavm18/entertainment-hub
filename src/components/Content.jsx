@@ -4,8 +4,8 @@ import Loader from "./Loader";
 import Logo from "./Logo";
 import Shows from "./Shows";
 import SearchBar from "./SearchBar";
-import filterData from "./hooks/filterData";
-import useFetchData from "./hooks/useFetchData";
+import filterData from "../hooks/filterData";
+import useFetchData from "../hooks/useFetchData";
 
 const Content = ({ status, apiResult, type }) => {
   const reqUrl = `${url}${type}?api_key=${API_KEY} `;

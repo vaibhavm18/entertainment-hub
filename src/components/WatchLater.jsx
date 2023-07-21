@@ -9,9 +9,9 @@ const WatchLater = ({ status }) => {
   const shows = useSelector((state) => state.bookmark.favorites);
   return (
     <div className={`${styles.container} `}>
-      <div className='flex flex-col items-center  gap-16 py-8 '>
+      <div className='flex flex-col items-center text-center gap-16 py-8 '>
         <Logo />
-        <h2 className='font-bold text-4xl'>{status}</h2>
+        <h2 className='font-bold text-4xl'>BookMarked</h2>
         <Shows shows={shows} load={<NoFavorites />} isSelected={true} />
       </div>
     </div>

@@ -3,18 +3,10 @@ import { BsBookmarkPlusFill } from "react-icons/bs";
 import { MdBookmarkRemove } from "react-icons/md";
 import { imgUrl } from "../constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addShow, removeShow } from "./features/bookmark/bookmark";
+import { addShow, removeShow } from "../bookmark/bookmark";
 const Show = (props) => {
   const [isSelected, setIsSelected] = useState(props.isSelected);
   const dispatch = useDispatch();
-  const shows = useSelector((state) => state.bookmark.favorites);
-  useEffect(() => {
-    shows.map(({ id }) => {
-      if (id === props.id) {
-        setIsSelected(true);
-      }
-    });
-  }, []);
 
   return (
     <div

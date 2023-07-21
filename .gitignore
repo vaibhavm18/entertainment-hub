@@ -24,5 +24,3 @@ dist-ssr
 *.sw?
 *.gitignore
 
-*.config.js
-api.js
