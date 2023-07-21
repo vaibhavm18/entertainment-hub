@@ -4,6 +4,7 @@ import Content from "./components/Content";
 import Header from "./components/Header";
 import WatchLater from "./components/WatchLater";
 import { pages } from "./constant";
+import { NotFound } from "./components/NotFound";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           );
         })}
         <Route element={<WatchLater />} path={"/watchlater"} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
