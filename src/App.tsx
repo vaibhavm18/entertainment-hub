@@ -8,7 +8,7 @@ import { NotFound } from "./components/NotFound";
 
 const App = () => {
   return (
-    <div className='h-screen w-screen font-serif  bg-gray-900 text-white flex flex-col xs:flex-row p-8 gap-4 '>
+    <div className="h-screen w-screen font-serif  bg-gray-900 text-white flex flex-col xs:flex-row p-8 gap-4 ">
       <Header />
       <Routes>
         {pages.map((page, index) => {
@@ -21,7 +21,7 @@ const App = () => {
           );
         })}
         <Route element={<WatchLater />} path={"/watchlater"} />
-        <Route path='*' element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
