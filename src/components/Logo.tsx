@@ -1,9 +1,5 @@
-import React from "react";
-
 const Logo = () => {
-    return (
-        <h1 className="text-center text-4xl font-bold">Entertainment Hub</h1>
-    );
+  return <h1 className="text-center text-4xl font-bold">Entertainment Hub</h1>;
 };
 
 export default Logo;

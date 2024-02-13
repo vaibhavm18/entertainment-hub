@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import Loader from "./Loader";
-import Show from "./Show";
+import { ReactNode } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
+import { show } from "../bookmark/bookmark";
 import { isBookmarked } from "../constant";
-const Shows = ({ shows, load, isSelected }) => {
-  const fav = useSelector((state) => state.bookmark.favorites);
+import Show from "./Show";
 
+type Props = {
+  shows: show[];
+  load: ReactNode;
+  isSelected: boolean;
+};
+const Shows = ({ shows, load, isSelected }: Props) => {
+  const fav = useSelector((state: RootState) => state.bookmark.favorites);
   return (
-    <div className='grid grid-cols-card gap-5  '>
+    <div className="grid grid-cols-card gap-5  ">
       {shows && shows.length > 0
         ? shows.map(
-            (
-              {
-                title,
-                name,
-                first_air_date,
-                vote_average,
-                poster_path,
-                id,
-                release_date,
-              },
-              index
-            ) => {
+            ({
+              title,
+              name,
+              first_air_date,
+              vote_average,
+              poster_path,
+              id,
+              release_date,
+            }) => {
               return (
                 <Show
                   title={title ? title : name}
@@ -31,6 +34,8 @@ const Shows = ({ shows, load, isSelected }) => {
                   key={id}
                   release_date={release_date ? release_date : first_air_date}
                   isSelected={isBookmarked(id, fav, isSelected)}
+                  first_air_date=""
+                  name=""
                 />
               );
             }

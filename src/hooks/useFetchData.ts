@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
-const useFetchData = (url, setSearchInput) => {
+const useFetchData = (url: string, setSearchInput: (s: string) => void) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setSearchInput("");
@@ -14,7 +14,9 @@ const useFetchData = (url, setSearchInput) => {
       .then(({ data }) => {
         setData(data.results);
       })
-      .catch((error) => {});
+      .catch((e) => {
+        console.log(e);
+      });
     return () => {
       controller.abort();
     };

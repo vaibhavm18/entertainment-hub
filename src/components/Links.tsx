@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
-const Links = ({ path, icon, tooltip }) => {
+type Props = {
+  path: string;
+  icon: ReactNode;
+  tooltip: string;
+};
+
+const Links = ({ path, icon, tooltip }: Props) => {
   return (
     <li
       className={`text-xl xs:text-3xl xs:py-2 rounded-xl w-full center py-1  relative`}
@@ -18,7 +24,7 @@ const Links = ({ path, icon, tooltip }) => {
       >
         {icon}
       </NavLink>
-      <span className='text-base hidden xs:flex  absolute -bottom-6 scale-0 text-start transition-all duration-300  peer-hover:scale-100 '>
+      <span className="text-base hidden xs:flex  absolute -bottom-6 scale-0 text-start transition-all duration-300  peer-hover:scale-100 ">
         {tooltip}
       </span>
     </li>

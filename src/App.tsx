@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Content from "./components/Content";
 import Header from "./components/Header";
+import { NotFound } from "./components/NotFound";
 import WatchLater from "./components/WatchLater";
 import { pages } from "./constant";
-import { NotFound } from "./components/NotFound";
 
 const App = () => {
   return (
@@ -16,7 +15,7 @@ const App = () => {
             <Route
               key={index}
               path={page.path}
-              element={<Content status={page.status} type={page.type} />}
+              element={<Content type={page.type} />}
             />
           );
         })}
